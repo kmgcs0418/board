@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <title th:text="@{'게시판 - ' + ${post.title}}"></title>
+  <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+</head>
+<body>
+<header th:insert="common/header.html"></header>
+<div class="container" style="margin-top:30px">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <h5 th:text="@{'제목 : ' + ${post.title}}"></h5>
+      </div>
+      <div>
+        <td th:text="@{'작성자 : ' + ${post.username}}"></td>
+      </div>
+      <div>
+        <td th:text="${'작성 날짜 : ' + #temporals.format(post.createdDate, 'yyyy-MM-dd HH:mm')}"></td>
+        <br><br>
+      </div>
+      <h5>내용</h5>
+      <div style="border:1px solid; padding:10px;">
+        <dl>
+          <dd th:text="${post.content}"></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="row mt-3">
+    <div class="col-auto mr-auto"></div>
+    <div>
+      <a class="btn btn-info" th:if="${post.username} == ${#authentication.principal.username}" th:href="@{'/post/edit/' + ${post.id}}" role="button">수정</a>
+    </div>
+    <div>
+      <form id="delete-form" th:action="@{'/post/' + ${post.id}}" method="post">
+        <input type="hidden" name="_method" value="delete" />
+        <button id="delete-btn" th:if="${post.username} == ${#authentication.principal.username}" type="submit" class="btn btn-danger">삭제</button>
+      </form>
+    </div>
+  </div>
+
+  <form th:action="@{'/post/' + ${post.id} + '/comment'}" method="post" style="display:flex; justify-content: center; padding-bottom: 15px;">
+    <div>
+    <table class="comment">
+      <tr>
+        <td>
+          <textarea class="form-control" name="content" type="text" rows="1" cols="50" required></textarea>
+        </td>
+        <td>
+          <button class="btn btn-info">
+            댓글쓰기
+          </button>
+        </td>
+      </tr>
+    </table>
+    </div>
+  </form>
+  <div class="container" style="margin-top:30px">
+    <table class="table table-bordered" style="margin-left: auto; margin-right:">
+
+      <tr th:each="comment : ${commentList}">
+        <td>
+          <div th:text="${comment.member.username}"></div>
+          <div>
+            <span th:text="${comment.content}"></span>
+            <span th:text="${#temporals.format(comment.createdDate, 'yyyy-MM-dd HH:mm')}" style="font-size:10px;"></span>
+            <span><a class="btn btn-light btn-sm" th:if="${comment.member.username} == ${#authentication.principal.username}">수정</a></span>
+            <span><a class="btn btn-light btn-sm" th:if="${comment.member.username} == ${#authentication.principal.username}">삭제</a></span>
+          </div>
+        </td>
+
+        <!--<div class="col-auto">
+        <a class="btn btn-info" th:href="@{'/post/edit/' + ${post.id}}" role="button">수정</a>
+        </div>-->
+        <!--<form th:action="@{'/post/comment/' + ${comment.id}}" method="post">
+          <input type="hidden" name="_method" value="delete" />
+          <button  type="submit" class="btn btn-danger">삭제</button>
+        </form>-->
+      </tr>
+    </table>
+  </div>
+
+    <!--
+    <div>
+    <tbody>
+    <table class="table table-bordered comment">
+        <tr th:each="comment : ${commentList}">
+          <td>
+            <div>
+              <span th:text="${comment.member.username}"></span>
+              <span th:text="${comment.content}"></span>
+              <span th:text="${#temporals.format(comment.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
+              <<div class="col-auto">
+                <a class="btn btn-info" th:href="@{'/post/edit/' + ${post.id}}" role="button">수정</a>
+              </div>
+              <form th:action="@{'/post/comment/' + ${comment.id}}" method="post">
+                <input type="hidden" name="_method" value="delete" />
+                <button  type="submit" class="btn btn-danger">삭제</button>
+              </form>
+            </div>
+          </td>
+        </tr>
+    </table>
+    </tbody>
+    </div>-->
+
+
+
+
+  <!--<div>
+    <header th:insert="common/header.html"></header>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title" th:text="@{${post.title} + ' - ' + ${post.username}}"></h5>
+        <p class="card-text">
+          <small
+                  class="text-muted"
+                  th:text="${#temporals.format(post.createdDate, 'yyyy-MM-dd HH:mm')}"
+          ></small>
+        </p>
+        <p class="card-text" th:text="${post.content}"></p>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-auto mr-auto"></div>
+      <div class="col-auto">
+        <a class="btn btn-info"  th:href="@{'/post/edit/' + ${post.id}}" role="button">수정</a>
+      </div>
+      <div class="col-auto">
+        <form id="delete-form" th:action="@{'/post/' + ${post.id}}" method="post">
+          <input type="hidden" name="_method" value="delete" />
+          <button id="delete-btn" type="submit" class="btn btn-danger">삭제</button>
+        </form>
+      </div>
+    </div>
+  </div>-->
+  <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+  <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<body>
+<div class="navbar navbar-dark bg-dark shadow-sm mb-3">
+  <div class="container d-flex justify-content-between">
+    <a href="/" class="navbar-brand d-flex align-items-center">
+      <strong>게시판</strong>
+    </a>
+  </div>
+</div>
+<div>
+  <a sec:authorize="isAnonymous()" th:href="@{/member/login}">로그인</a>
+  <a sec:authorize="isAuthenticated()" th:href="@{/member/logout}">로그아웃</a>
+  <a sec:authorize="isAnonymous()" th:href="@{/member/signup}">회원가입</a>
+</div>
+</body>
+</html>
