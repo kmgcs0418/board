@@ -20,10 +20,9 @@ SpringBoot JPA, board
 - 댓글 : CRUD 기능
 
 ## 데이터 구조(ERD)
-![Untitled](https://user-images.githubusercontent.com/73234708/187394365-e1f05b50-91b3-4241-af6a-fe8a0498b58b.png)
 ---
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9899a58b-c24d-459d-bea6-116c40139ce4/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/73234708/187394365-e1f05b50-91b3-4241-af6a-fe8a0498b58b.png)
 
 - Entity 클래스를 사용하여 JPA가 관리하게 해주었다.
 
@@ -33,9 +32,9 @@ SpringBoot JPA, board
 
 ### 회원가입 및 로그인
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d0a09927-7e0c-40fd-a259-2dc49d8c7173/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/73234708/187394632-dc68433c-61f6-47ce-b126-4fac248fc81e.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fa5daa5e-c584-45e2-9966-7feef3edd7eb/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/73234708/187394719-7cf2c655-c790-4150-94f8-8d0b3855d542.png)
 
 - 회원가입 및 로그인
     - SecurityConfig에서 WebSecurityConfigurerAdaper를 상속받은 클래스에서 메소드를 오버라이딩 하여 조정한다.
@@ -43,9 +42,9 @@ SpringBoot JPA, board
 
 ### 리스트, 페이징, 조회수
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b9861dd7-1bd8-463a-884f-0cfa554d62e4/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/73234708/187394795-f2780133-eed2-4c76-89f1-a1bd3a5c6108.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/18b5e754-cd82-4d90-9ed7-e80b5cc48ca3/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/73234708/187394821-6b928916-87c0-4a38-b0f4-06ab1b34a678.png)
 
 - 리스트, 페이징
     - jpa findAll()과 pageable를 사용한다.
@@ -54,9 +53,9 @@ SpringBoot JPA, board
 
 ### 글쓰기, 수정, 삭제
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/620f57e7-7af8-43c7-9cf6-cc0dcca62bb1/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/73234708/187394873-ed64be86-59a9-4116-9c00-4e6fc11380db.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2eed1bab-ed16-4ab0-9d57-e7ff2c8fc7c0/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/73234708/187394888-23e2b53b-47ad-4cee-add1-628a26a470e8.png)
 
 - 글쓰기
     - GetMapping -> 글쓰기 폼.html -> PostMapping하여 작성
@@ -72,7 +71,7 @@ SpringBoot JPA, board
 
 ### 검색 및 검색 페이징
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cede5049-a55a-4ea0-9ebe-d41087989c70/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/73234708/187394929-36b81527-1408-427b-8bac-401f3d20aca0.png)
 
 - 검색 및 검색 페이징
     - repository에서 findByTitleContaining 이처럼 By 이후에 containing을 붙혀 Like 검색이 가능하게 해줘서 검색한다.
@@ -80,7 +79,7 @@ SpringBoot JPA, board
 
 ### 상세보기 및 댓글작성
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9255fa6b-4cc4-461f-b948-e571ebe4f4e8/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/73234708/187394993-0383b555-d15b-4c04-be1b-8d12c054cb61.png)
 
 - 상세보기
     - 게시글 제목을 누르면 컨트롤러에서 Getmapping해서 후 보여준다.
