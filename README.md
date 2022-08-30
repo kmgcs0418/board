@@ -20,7 +20,7 @@ SpringBoot JPA, board
 - 댓글 : CRUD 기능
 
 ## 데이터 구조(ERD)
-
+![Untitled](https://user-images.githubusercontent.com/73234708/187394365-e1f05b50-91b3-4241-af6a-fe8a0498b58b.png)
 ---
 
 ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9899a58b-c24d-459d-bea6-116c40139ce4/Untitled.png)
